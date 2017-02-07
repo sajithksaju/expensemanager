@@ -1,0 +1,80 @@
+{
+  "expenses" : [ {
+    "transactionDate" : "2017-01-03",
+    "description" : "Fred Meyer",
+    "type" : "Grocery",
+    "paymentMethod" : "My credit",
+    "amount" : 10.0,
+    "notes" : "vbavsgfas"
+  }, {
+    "transactionDate" : "2017-01-04",
+    "description" : "Fred Meyer",
+    "type" : "Grocery",
+    "paymentMethod" : "My credit",
+    "amount" : 11.56,
+    "notes" : "vbavsgfas"
+  }, {
+    "transactionDate" : "2017-01-05",
+    "description" : "Fred Meyer",
+    "type" : "Grocery",
+    "paymentMethod" : "My credit",
+    "amount" : 11.5,
+    "notes" : "vbavsgfas"
+  }, {
+    "transactionDate" : "2017-01-06",
+    "description" : "Fred Meyer",
+    "type" : "Grocery",
+    "paymentMethod" : "My credit",
+    "amount" : 12.45,
+    "notes" : "vbavsgfas"
+  }, {
+    "transactionDate" : "2017-01-08",
+    "description" : "Fred Meyer",
+    "type" : "Grocery",
+    "paymentMethod" : "My credit",
+    "amount" : 12.0,
+    "notes" : "vbavsgfas"
+  }, {
+    "transactionDate" : "2017-01-08",
+    "description" : "Sajith",
+    "type" : "Grocery",
+    "paymentMethod" : "My credit",
+    "amount" : 12.0,
+    "notes" : "vbavsgfas"
+  }, {
+    "transactionDate" : "2017-02-08",
+    "description" : "Sajith",
+    "type" : "Grocery",
+    "paymentMethod" : "My credit",
+    "amount" : 12.0,
+    "notes" : "vbavsgfas"
+  }, {
+    "transactionDate" : "2017-02-01",
+    "description" : "Sajith",
+    "type" : "Grocery",
+    "paymentMethod" : "My credit",
+    "amount" : 12.0,
+    "notes" : "vbavsgfas"
+  }, {
+    "transactionDate" : "2017-02-28",
+    "description" : "Sajith",
+    "type" : "Grocery",
+    "paymentMethod" : "My credit",
+    "amount" : 12.0,
+    "notes" : "vbavsgfas"
+  }, {
+    "transactionDate" : "2017-01-28",
+    "description" : "Sajith",
+    "type" : "Entertainment",
+    "paymentMethod" : "My credit",
+    "amount" : 12.0,
+    "notes" : "vbavsgfas"
+  }, {
+    "transactionDate" : "2017-01-21",
+    "description" : "Sajith",
+    "type" : "Food",
+    "paymentMethod" : "My credit",
+    "amount" : 12.0,
+    "notes" : "vbavsgfas"
+  } ]
+}
