@@ -4,16 +4,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ssaju.expensemanager.model.PaymentMethod;
 import com.ssaju.expensemanager.model.PaymentMethods;
 import com.ssaju.expensemanager.service.exception.RequestValidationException;
-import com.ssaju.expensemanager.util.ExpenseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-
 import static com.ssaju.expensemanager.model.ErrorResponse.FieldError;
-import static com.ssaju.expensemanager.service.ServiceConstants.PAYMENT_METHOD_FILE_PATH;
 import static com.ssaju.expensemanager.service.ServiceConstants.PAYMENT_TYPES;
 
 @Configurable
@@ -23,18 +17,15 @@ public class PaymentMethodService {
     private ObjectMapper objectMapper;
 
     @Autowired
-    ExpenseUtil expenseUtil;
+    S3Manager s3Manager;
 
     public void addPaymentMethod(PaymentMethod paymentMethod) {
-        try {
-            paymentMethod.setType(paymentMethod.getType().toUpperCase());
-            PaymentMethods paymentMethods = expenseUtil.getPaymentMethodsFromJSON();
-            validatePaymentMethod(paymentMethods, paymentMethod);
-            paymentMethods.getPaymentMethods().add(paymentMethod);
-            objectMapper.writeValue(new File(PAYMENT_METHOD_FILE_PATH), paymentMethods);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        paymentMethod.setType(paymentMethod.getType().toUpperCase());
+        PaymentMethods paymentMethods = s3Manager.getPaymentMethodsFromS3();
+        validatePaymentMethod(paymentMethods, paymentMethod);
+        paymentMethods.getPaymentMethods().add(paymentMethod);
+        s3Manager.updatepaymentMethodsS3File(paymentMethods);
 
     }
 

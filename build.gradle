@@ -1,6 +1,8 @@
 buildscript {
 	ext {
 		springBootVersion = '1.5.1.RELEASE'
+		springCloudVersion = '1.0.2.RELEASE'
+
 	}
 	repositories {
 		mavenCentral()
@@ -10,9 +12,14 @@ buildscript {
 	}
 }
 
+
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
+apply plugin: "io.spring.dependency-management"
+
+
 
 jar {
 	baseName = 'expensemanager'
@@ -28,6 +35,8 @@ repositories {
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
-	compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.6.1'
+	compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.6.1')
+	compile("org.springframework.cloud:spring-cloud-aws-context:${springCloudVersion}")
+
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }

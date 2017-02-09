@@ -9,6 +9,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.ssaju.expensemanager.service.ExpenseService;
 import com.ssaju.expensemanager.service.PaymentMethodService;
 import com.ssaju.expensemanager.service.ReportService;
+import com.ssaju.expensemanager.service.S3Manager;
 import com.ssaju.expensemanager.util.ExpenseUtil;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -49,5 +50,8 @@ public class ExpenseManagerConfiguration {
 
     @Bean("reportService")
     public ReportService reportService(){ return new ReportService();}
+
+    @Bean("s3Manager")
+    public S3Manager s3Manager(){ return new S3Manager();}
 
 }

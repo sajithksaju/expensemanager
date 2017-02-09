@@ -4,12 +4,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ssaju.expensemanager.model.Expense;
 import com.ssaju.expensemanager.model.Expenses;
 import com.ssaju.expensemanager.service.exception.RequestValidationException;
-import com.ssaju.expensemanager.util.ExpenseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import static com.ssaju.expensemanager.model.ErrorResponse.FieldError;
 import static com.ssaju.expensemanager.service.ServiceConstants.EXPENSE_FILE_PATH;
@@ -23,18 +21,13 @@ public class ExpenseService {
     ObjectMapper objectMapper;
 
     @Autowired
-    ExpenseUtil expenseUtil;
+    S3Manager s3Manager;
 
     public void addExpense(Expense expense) {
-        try {
             validate(expense);
-            Expenses expenses = expenseUtil.getExpensesFromJSON();
+            Expenses expenses = s3Manager.getExpensesFromS3();
             expenses.getExpenses().add(expense);
-            objectMapper.writeValue(new File(EXPENSE_FILE_PATH), expenses);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+            s3Manager.updateExpensesS3File(expenses);
 
     }
 

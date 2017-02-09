@@ -28,11 +28,11 @@ public class ReportService {
     ObjectMapper objectMapper;
 
     @Autowired
-    ExpenseUtil expenseUtil;
+    S3Manager s3Manager;
 
 
     public List<Expense> getExpensesForPeriod(final PeriodReportRequest periodReportRequest) {
-        Expenses expenses = expenseUtil.getExpensesFromJSON();
+        Expenses expenses = s3Manager.getExpensesFromS3();
         PeriodReportRequest request = validateAndUpdateRequest(periodReportRequest);
         List<Expense> expensesForGivenPeriod = expenses.getExpenses().stream()
                 .filter(expense -> {
